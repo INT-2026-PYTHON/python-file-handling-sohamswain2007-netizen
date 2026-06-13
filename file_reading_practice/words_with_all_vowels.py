@@ -40,3 +40,24 @@ Explanation:
 =================================================
 
 """
+def main():
+    # Step 1: Read the file and store words
+    with open('sowpods.txt', 'r') as file:
+        words = [line.strip() for line in file]
+
+    # Step 2: Define the set of vowels
+    vowels = set('aeiou')
+
+    # Step 3: Find words that contain all vowels
+    words_with_all_vowels = []
+    for word in words:
+        word_lower = word.lower()
+        if all(vowel in word_lower for vowel in vowels):
+            words_with_all_vowels.append(word)
+
+    # Step 4: Print the results
+    for word in words_with_all_vowels:
+        print(word)
+    print(f'Total words with all vowels: {len(words_with_all_vowels)}')
+if __name__ == "__main__":
+    main()
